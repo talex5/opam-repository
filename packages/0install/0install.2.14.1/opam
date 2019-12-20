@@ -13,6 +13,7 @@ depends: [
   "yojson"
   "xmlm"
   "ounit" {with-test}
+  "lwt" {< "5.0.0"}
   "lwt_react"
   "ocurl" {>= "0.7.9"}
   "sha" {>= "1.9"}
@@ -24,7 +25,8 @@ conflicts: [
   "lablgtk" {< "2.18.2"}
 ]
 depexts: [
-  ["unzip"] {os-family = "debian"}
+  ["gnupg" "unzip"] {os-family = "debian"}
+  ["gnupg" "unzip"] {os-distribution = "alpine"}
   ["gnupg"] {os = "macos" & os-distribution = "homebrew"}
 ]
 synopsis: "The antidote to app-stores"
