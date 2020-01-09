@@ -1,0 +1,39 @@
+opam-version: "2.0"
+name: "irmin-indexeddb"
+synopsis: "Irmin backend using the web-browser's IndexedDB store"
+maintainer: "Thomas Leonard <talex5@gmail.com>"
+authors: "Thomas Leonard <talex5@gmail.com>"
+license: "ISC"
+homepage: "https://github.com/talex5/irmin-indexeddb"
+bug-reports: "https://github.com/talex5/irmin-indexeddb/issues"
+depends: [
+  "ocaml" {>= "4.5.0"}
+  "base64" {>= "3.0.0"}
+  "irmin" {>= "1.3.0" & < "2.0.0"}
+  "irmin-git"
+  "cstruct" {>= "1.7.0"}
+  "js_of_ocaml" {>= "3.0"}
+  "js_of_ocaml-lwt"
+  "js_of_ocaml-ppx"
+  "git"
+  "lwt"
+]
+build: [
+  ["dune" "build" "-p" name "-j" jobs]
+  ["dune" "runtest" "-p" name "-j" jobs] {with-test}
+  ["dune" "build" "-p" name "@doc"] {with-doc}
+]
+dev-repo: "git+https://github.com/talex5/irmin-indexeddb.git"
+doc: "https://talex5.github.io/irmin-indexeddb/"
+description: """
+This is an Irmin backend that stores the data in the web-browser's IndexedDB store.
+For more information, see <http://roscidus.com/blog/blog/2015/06/22/cuekeeper-internals-irmin/>
+"""
+url {
+  src:
+    "https://github.com/talex5/irmin-indexeddb/releases/download/v1.3/irmin-indexeddb-v1.3.tbz"
+  checksum: [
+    "sha256=b5b0d4695e723e723a2999632d29a1904628f9bd79e381a79bcedb2c55d6023c"
+    "sha512=85231245302481a54c96dc42df7521fb7b472a000a11e14ada6d0af51ca449a6c1a950ff7979267ac45e078137cdaf15cd49bf29a157557be367cb89816dce0c"
+  ]
+}
